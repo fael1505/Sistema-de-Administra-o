@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap');
+body {
+    margin: 0;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+*:root {
+    font-size: 19px;
+}
+
+/* LOGIN */
+.login{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 12px;
+
+    align-items: center;
+}
+
+.login.loginSize{
+    width: 100vw;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+.login .descriptionBox, .login .loginBox{
+    background-color: rgba(0, 0, 0, 0.01);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* LOGIN DESCRIPTION */
+.login .descriptionBox{
+    height: 75vh;
+    height: calc(var(--vh, 1vh) * 75);
+
+    grid-column: 2 / span 6;
+
+    display: grid;
+    grid-template-rows: 50% 50%;
+    gap: 10px;
+}
+
+.login .descriptionBox .logo{
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: cover;
+
+    justify-self: center;
+}
+
+.login .descriptionBox .description{
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.login .descriptionBox .description *{
+    padding: 0;
+    margin: 0;
+}
+
+.login .descriptionBox .description h1{
+    font-size: 1.8rem;
+}
+
+.login .descriptionBox .description p{
+    font-size: 1.2rem;
+}
+
+.login .loginBox{
+    height: 75vh;
+    height: calc(var(--vh, 1vh) * 75);
+    
+    grid-column: 8 / span 4;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 1rem;
+}
+
+.login .loginBox form{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.login .loginBox form input{
+    margin: 10px;
+    width: 60%;
+
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.login .loginBox form input:focus{
+    outline: none;
+}
+
+.login .loginBox form [id="user"], .login .loginBox form [id="pass"]{
+    border-top: none;
+    border-right: none;
+    border-bottom: 3px solid rgb(255, 166, 0);
+    border-left: none;
+
+    background-color: transparent;
+
+    transition: border 0.25s ease-in-out;
+}
+
+.login .loginBox form [id="user"]:focus, .login .loginBox form [id="pass"]:focus{
+    border-bottom: 3px solid rgb(192, 125, 0);
+}
+
+.login .loginBox form [id="btnLogin"]{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+
+    border: none;
+    border-radius: 30px;
+
+    background-color: orange;
+    color: rgba(0, 0, 0, 0.70);
+
+    transition: background-color 0.25s ease-in-out;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+.login .loginBox form [id="btnLogin"]:hover{
+    background-color: rgb(192, 125, 0);
+}
+
+.login .loginBox form p {
+    display: block;
+    text-align: center;
+    margin: 0 10px 0 10px;
+}
+
+.login .loginBox a{
+    text-decoration: none;
+    color: blue;
+}
+
+/* MOBILE SUPPORT */
+@media (max-width: 1024px){
+    *:root{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px), (orientation: portrait){
+    *:root{
+        font-size: 14px;
+    }
+
+    .login {
+        grid-template-columns: none;
+        grid-template-rows: repeat(12, 1fr);
+        gap: 8px;
+
+        justify-items: center;
+    }
+
+    .login .descriptionBox {
+        grid-column: initial;
+        grid-row: 2 / span 5;
+        
+        height: 100%;
+        width: 75vw;
+    }
+
+    .login .loginBox {
+        grid-column: initial;
+        grid-row: 7 / span 5;
+
+        height: 100%;
+        width: 75vw;
+    }
+
+    .login .loginBox form input{
+        width: 50%;
+    }
+
+    .login .loginBox form [id="btnLogin"]{
+        width: 40%;
+    }
+
+}
+
+@media (max-width: 640px) {
+    *:root{
+        font-size: 11px;
+    }
+}
