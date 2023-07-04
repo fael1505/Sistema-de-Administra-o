@@ -4,11 +4,17 @@ require_once 'php/global.php';
 
 if(isset($_SESSION['loggedin'])) {
 
-  echo 'LOGGED';
+  $initialPage = "home.php";
+
+  if(!isset($_SESSION['currentPage'])){
+    $_SESSION['currentPage'] = $initialPage;
+  }
+
+  include 'pages/loggedIn/' . $_SESSION['currentPage'];
 
 }else{
 
-  include 'pages/login.php';
+  include 'pages/initialPage.php';
 
 }
 

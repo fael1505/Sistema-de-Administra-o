@@ -92,6 +92,9 @@ body {
     flex-direction: column;
 
     align-items: center;
+
+    transition: opacity 1s ease-out;
+
 }
 
 .login .loginBox form input{
@@ -109,7 +112,7 @@ body {
 .login .loginBox form [id="user"], .login .loginBox form [id="pass"]{
     border-top: none;
     border-right: none;
-    border-bottom: 3px solid rgb(255, 166, 0);
+    border-bottom: 3px solid orange;
     border-left: none;
 
     background-color: transparent;
@@ -117,11 +120,11 @@ body {
     transition: border 0.25s ease-in-out;
 }
 
-.login .loginBox form [id="user"]:focus, .login .loginBox form [id="pass"]:focus{
-    border-bottom: 3px solid rgb(192, 125, 0);
+.login .loginBox form[id="registerForm"] [id="user"], .login .loginBox form[id="registerForm"] [id="pass"]{
+    border-bottom: 3px solid rgb(64, 128, 192);
 }
 
-.login .loginBox form [id="btnLogin"]{
+.login .loginBox form [type="submit"]{
     margin-top: 20px;
     margin-bottom: 20px;
     width: 50%;
@@ -138,19 +141,38 @@ body {
 
     cursor: pointer;
 }
+
+.login .loginBox form[id="loginForm"] #user:focus, .login .loginBox form #pass:focus{
+    border-bottom: 3px solid rgb(192, 125, 0);
+}
+
+.login .loginBox form[id="registerForm"] #user:focus, .login .loginBox form[id="registerForm"] #pass:focus{
+    border-bottom: 3px solid rgb(64, 96, 192);
+}
+
 .login .loginBox form [id="btnLogin"]:hover{
     background-color: rgb(192, 125, 0);
+}
+
+.login .loginBox form [id="btnRegister"]{
+    background-color: rgb(64, 128, 180);
+}
+
+.login .loginBox form [id="btnRegister"]:hover{
+    background-color: rgb(64, 96, 192);
 }
 
 .login .loginBox form p {
     display: block;
     text-align: center;
-    margin: 0 10px 0 10px;
+    margin: 0 10px 10px 10px;
 }
 
-.login .loginBox form p[id="login_result"] {
+.login .loginBox form p[id="login_result success"], .login .loginBox form p[id="register_result success"] {
+    color: green;
+}
+.login .loginBox form p[id="login_result failed"], .login .loginBox form p[id="register_result failed"] {
     color: red;
-    margin-bottom: 10px;
 }
 
 .login .loginBox a{
