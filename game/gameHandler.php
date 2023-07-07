@@ -13,11 +13,11 @@
     <title>Dungeon Ascendancy</title>
     <link rel="stylesheet" href="style/global.css" />
     <script type="text/javascript" src="js/global.js"></script>
+    <script type="text/javascript" src="game/gameScripts.js"></script>
     <link rel="stylesheet" href="style/game.css" />
     <title>Inicio</title>
 </head>
-<body>
-    
+<body onload="gameNav('home')">
     <div class="game">
         <div class="nav">
             <div class="profileInfo">
@@ -37,8 +37,16 @@
         </div>
         <button class="logout" onclick="window.location = 'php/logout.php';">Sair</button>
         <div class="gameLogo"><img src="style/imgs/logo1024px.png" alt="" class="logo"></div>
-        <div class="gameNav"></div>
-        <div class="gameArea"></div>
+        <div class="gameNav" id="gameNav">
+            <a id="home" class="item" onclick="gameNav('home')">Inicio</a>
+            <a id="shop" class="item" href="javascript:gameNav('shop');">Loja</a>
+            <a id="inventory" class="item" href="javascript:gameNav('inventory');">Inventário</a>
+            <a id="dungeons" class="item" href="javascript:gameNav('dungeons');">Dungeons</a>
+            <a id="upgrade" class="item" href="javascript:gameNav('upgrade');">Upgrade</a>
+        </div>
+        <div class="gameArea">
+            <iframe src="" class="game" id="gameFrame"></iframe>
+        </div>
     </div>
 </body>
 </html>
