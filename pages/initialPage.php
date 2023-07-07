@@ -11,9 +11,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin</title>
+    <title>Dungeon Ascendancy</title>
     <link rel="stylesheet" href="style/global.css" />
     <script type="text/javascript" src="js/global.js"></script>
+    <link rel="stylesheet" href="style/login.css" />
     <script>
       function loginBox(){
         document.getElementById('loginForm').style = "display:flex;opacity:1;";
@@ -28,14 +29,15 @@
   <body onload="<?php if($request_form=="login"){echo "loginBox()";}elseif($request_form=="register" && $success_msg==false){echo "registerBox()";}else{echo "loginBox()";} ?>">
     <div class="login loginSize">
       <div class="descriptionBox">
-        <img
-          src="style/imgs/loginDescriptionLogo.png"
-          alt="Sistema de Administração"
-          class="logo"
-        />
+        <div class="logo">
+          <img
+              src="style/imgs/logo1024px.png"
+              alt="Dungeon Ascendancy"
+              class="logo"
+          />
+        </div>  
         <div class="description">
-          <h1>Sistema de administração</h1>
-          <p>Tudo que você precisa em um só lugar!</p>
+          <p>Explore masmorras perigosas, lute contra criaturas aterrorizantes e colete tesouros épicos para tornar seu personagem o mais forte de todos!</p>
         </div>
       </div>
       <div class="loginBox">

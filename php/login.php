@@ -7,7 +7,6 @@ require_once 'class.simpleSQLinjectionDetect.php';
 
 $request_form = "";
 
-$check_password_without_hash = true;
 $login_result = "";
 $register_result = "";
 $success_msg = false;
@@ -38,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Prepare a select statement
             $sql = "SELECT id, name, pass FROM users WHERE name='$username';";
             
-            if($result = mysqli_query($sql_link, $sql)){
+            if($result = mysqli_query(sql_link, $sql)){
                 $num_rows = mysqli_num_rows($result);
 
                 if($num_rows==1){
@@ -62,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
 
             // Close statement
-            mysqli_close($sql_link);
+            mysqli_close(sql_link);
 
         }
 
@@ -80,14 +79,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                     $sql = "SELECT name FROM users WHERE name='$username'";
 
-                    if($result = mysqli_query($sql_link, $sql)){
+                    if($result = mysqli_query(sql_link, $sql)){
                         
                         if(!mysqli_num_rows($result)){
                             
                             $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
                             $sql = "INSERT INTO users (name, pass) VALUES ('$username', '$pass_hash')";
 
-                            if($result = mysqli_query($sql_link, $sql)){
+                            if($result = mysqli_query(sql_link, $sql)){
                                 $success_msg = true;
                                 $login_result = "Registrado com sucesso!";
                             }else{

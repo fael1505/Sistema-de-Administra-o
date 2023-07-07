@@ -1,0 +1,170 @@
+.game{
+    width: 100vw;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+
+    display: grid;
+    grid-template-columns: 320px repeat(15, 1fr);
+    grid-template-rows: 50px repeat(30, 1fr) 50px;
+    gap: 4px;
+
+    margin: 0;
+
+}
+
+.game .nav{
+
+    grid-column: 1;
+    grid-row: 2 / span 31;
+    
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+
+    .profileInfo{
+
+        grid-column: 1;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        .profileImage {
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        .name{
+            font-weight: bold;
+        }
+
+        .level{
+            color: rgb(64, 64, 255);
+            margin-bottom: 0;
+        }
+        .level-progress{
+            margin:0 auto;
+            width: 90%;
+            height: 20px;
+            background-color: rgb(196, 196, 255);
+
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+
+            .xp{
+                grid-column: 1;
+                grid-row: 1;
+                z-index: 0;
+                height: 100%;
+                background-color: rgb(128, 128, 255);
+            }
+
+            .text{
+                grid-column: 1;
+                grid-row: 1;
+                z-index: 1;
+                margin: 0;
+                width: 100%;
+                font-size: 0.8rem;
+                text-align: center;
+            }
+
+        }
+    }
+
+    .currency{
+
+        margin-top: 30px;
+        display: grid;
+        grid-template-rows: repeat(1fr, 3);
+        gap: 10px;
+
+        width: 90%;
+
+        align-self: center;
+
+        .money{grid-row: 1;}
+        .gem{grid-row: 2;}
+        .sgem{grid-row: 3;}
+
+        .money, .gem, .sgem{
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+
+            align-items: center;
+
+            .currencyImg{
+                --size: 32px;
+                width: var(--size);
+                height: var(--size);
+            }
+
+            .value{
+                width: 100%;
+                text-align: left;
+                margin:0 6% 0 6%;
+            }
+        }
+    }   
+}
+
+.game{
+    .logout{
+
+        grid-column: 1;
+        grid-row: 32;
+
+        text-align: center;
+
+        cursor: pointer;
+
+        border: none;
+
+        color: white;
+        background-color: rgba(255, 0, 0, 0.9);
+
+        transition: background-color 0.25s ease-in-out;
+    }
+
+    .logout:hover{
+        background-color: rgba(255, 0, 0, 1);
+    }
+}
+
+.game{
+    .gameLogo{
+
+        grid-column: 3 / span 12;
+        grid-row: 2 / span 9;
+
+        display: flex;
+        justify-content: center;
+        
+        .logo{
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    .gameNav{
+        grid-column: 3 / span 12;
+        grid-row: 11 / span 2;
+        border: 1px solid black;
+    }
+
+    .gameArea{
+        grid-column: 3 / span 12;
+        grid-row: 13 / span 18;
+        border: 1px solid black;
+    }
+}
