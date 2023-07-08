@@ -1,12 +1,9 @@
 <?php
 
-    require_once 'global.php';
-    if(!isset($_SESSION['loggedin'])){ return; }
+    require_once realpath("php/global.php");
+    require_once realpath("php/class.simpleSQLinjectionDetect.php");
 
-    $_SESSION['gameSettings'] = [
-        "firstLevel" => 100,
-        "levelMultiplier" => 1.2345,
-    ];
+    if(!isset($_SESSION['loggedin'])){ return; }
 
     function loadProfile() {
         //LOAD PROFILE INFO
@@ -37,12 +34,12 @@
     }
 
     function myLevel() {
-        $gameSettings = $_SESSION['gameSettings'];
+        $gameSettings = json_decode(file_get_contents(realpath("game/settings/gameSettings.json")), true);
 
         $xp = $_SESSION['playerXp'];
         $level = 1;
-        $nextLevelXp = $gameSettings['firstLevel'];
-        $multiplier = $gameSettings['levelMultiplier'];
+        $nextLevelXp = $gameSettings['firstLevelXp'];
+        $multiplier = $gameSettings['levelXpMultiplier'];
 
         while($xp >= $nextLevelXp) {
             $xp -= $nextLevelXp;

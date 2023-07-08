@@ -1,6 +1,6 @@
 <?php
     require_once 'php/global.php';
-    require_once 'php/game.php';
+    require_once 'game/game.php';
 
     $playerLevel = myLevel();
 ?>
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style/global.css" />
     <script type="text/javascript" src="js/global.js"></script>
     <script type="text/javascript" src="game/gameScripts.js"></script>
-    <link rel="stylesheet" href="style/game.css" />
+    <link rel="stylesheet" href="game/style/gameHandler.css" />
     <title>Inicio</title>
 </head>
 <body onload="gameNav('home')">
@@ -43,6 +43,10 @@
             <a id="inventory" class="item" href="javascript:gameNav('inventory');">Inventário</a>
             <a id="dungeons" class="item" href="javascript:gameNav('dungeons');">Dungeons</a>
             <a id="upgrade" class="item" href="javascript:gameNav('upgrade');">Upgrade</a>
+            <?php if(isset($_SESSION['isAdmin'])){ ?>
+                <!-- ADMIN NAVIGATION -->
+                <a id="adminLogin" class="item" href="javascript:gameNav('adminLogin');">Admin</a>
+            <?php }?>
         </div>
         <div class="gameArea">
             <iframe src="" class="game" id="gameFrame"></iframe>

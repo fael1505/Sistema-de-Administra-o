@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Validate credentials
         if(empty($username_err) && empty($password_err)){
             // Prepare a select statement
-            $sql = "SELECT id, name, pass FROM users WHERE name='$username';";
+            $sql = "SELECT id, name, pass, isAdmin FROM users WHERE name='$username';";
             
             if($result = mysqli_query(sql_link, $sql)){
                 $num_rows = mysqli_num_rows($result);
@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     //CHECK HASHED PASSWORD
                     if(password_verify($password, $password_)){
                         //CORRECT PASSWORD
-                        loginSession($row['id'], $row['name']);
+                        loginSession($row['id'], $row['name'], $row['isAdmin']);
                     }else{
                         //INCORRECT PASSWORD
                         $login_result = "Usuário ou senha incorretos";
@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if(!mysqli_num_rows($result)){
                             
                             $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
-                            $sql = "INSERT INTO users (name, pass) VALUES ('$username', '$pass_hash')";
+                            $sql = "INSERT INTO users (name, pass, playerName) VALUES ('$username', '$pass_hash', '$username')";
 
                             if($result = mysqli_query(sql_link, $sql)){
                                 $success_msg = true;
@@ -115,10 +115,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
-function loginSession($id, $name){
+function loginSession($id, $name, $isAdmin){
     $_SESSION['id'] = $id;
     $_SESSION['name'] = $name;
     $_SESSION['loggedin'] = true;
+    if($isAdmin){
+        $_SESSION['isAdmin'] = true;
+    }
     header("refresh:0");
 }
 
