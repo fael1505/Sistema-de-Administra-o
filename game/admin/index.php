@@ -1,3 +1,11 @@
+<?php
+
+    require_once '../../php/global.php';
+
+    if(!isset($_SESSION['adminLoggedin'])){ return; }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +14,10 @@
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-    <center><h3>Admin logged in</h3></center>
+    <p class="optionTitle">Jogo</p>
+    <p class="option"><a href="options/gameItems">Itens</a></p>
+    <p class="optionTitle">Configurações</p>
+    <p class="option"><a href="options/">Configuraçoes gerais do jogo</a></p>
+    <p class="option"><a href="options/">Senha de administrador</a></p>
 </body>
 </html>

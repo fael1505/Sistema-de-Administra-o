@@ -60,4 +60,5 @@ if(!isset($_SESSION['profileLoaded'])){
      }
 
 }
+
 ?>

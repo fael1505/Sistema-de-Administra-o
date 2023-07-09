@@ -2,3 +2,23 @@ body{
     width: 100%;
     height: 100%;
 }
+
+.optionTitle{
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom:0;
+}
+
+.option{
+    font-size: 1.1rem;
+    margin:0.2rem 0 0rem 2rem;
+}
+
+.option a{
+    text-decoration: none;
+    color: darkorange;
+    transition: color 0.3s ease-in-out;
+}
+.option a:hover{
+    color: orangered;
+}

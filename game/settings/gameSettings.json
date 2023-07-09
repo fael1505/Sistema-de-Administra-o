@@ -1,4 +1,11 @@
 {
     "firstLevelXp":100,
-    "levelXpMultiplier":1.2345
+    "levelXpMultiplier":1.2345,
+    "items":{
+        "tierDamageMultiplier":0.29
+    },
+    "enchantmentDescription":{
+        "+atk":"+* Dano base do item",
+        "%atk":"+*% Dano base do item"
+    }
 }

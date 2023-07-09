@@ -41,7 +41,7 @@
         </div>
       </div>
       <div class="loginBox">
-      <form method="POST" id="loginForm" style="display:flex;opacity:1;">
+      <form method="POST" style="display:flex;opacity:1;">
           <input
             type="text"
             name="log_user"
