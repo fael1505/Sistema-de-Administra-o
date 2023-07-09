@@ -15,13 +15,13 @@
             foreach($enchantments as $key => $val){
                 
                 switch ($key){
-                    case '+atk':
+                    case '+dmg':
                         $atkMin += $val;
                         $atkMax += ($val*$maxAtkMultiplier);
 
                         break;
 
-                    case '%atk':
+                    case '%dmg':
                         $percentage = $val/100;
                         $atkMin += ($atkMin*$percentage);
                         $atkMax += ($atkMax*$percentage);

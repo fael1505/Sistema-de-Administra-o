@@ -4,8 +4,29 @@
     "items":{
         "tierDamageMultiplier":0.29
     },
+    "itemTypeName":{
+        "hand":"Arma",
+        "helmet":"Capacete",
+        "chestplate":"Peitoral",
+        "gloves":"Luvas",
+        "pants":"Calça",
+        "ring":"Anel",
+        "essence":"Essência"
+    },
+    "itemValueDescription":{
+        "dmg":"{0} - {1} Dano base",
+        "atkSpeed":"{0} Ataque(s) por segundo",
+        "lifeSteal":"{0}% Do dano é transformado em vida",
+        "armor":"+{0} Armadura total",
+        "life":"+{0} Vida máxima",
+        "lifeReg":"+{0} Regeneração de vida por segundo",
+        "expBonus":"+{0}% XP ganho",
+        "moneyBonus":"+{0}% Moeda ganha",
+        "gemBonus":"+{0}% Cristal ganho"
+    },
     "enchantmentDescription":{
-        "+atk":"+* Dano base do item",
-        "%atk":"+*% Dano base do item"
+        "+dmg":"+{0} Dano base do item",
+        "%dmg":"+{0}% Dano base do item"
     }
+    
 }

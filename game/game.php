@@ -1,7 +1,7 @@
 <?php
 
     require_once realpath("php/global.php");
-    require_once realpath("php/class.simpleSQLinjectionDetect.php");
+    require_once realpath("php/sql.php");
 
     if(!isset($_SESSION['loggedin'])){ return; }
 

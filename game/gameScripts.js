@@ -1,7 +1,7 @@
 async function gameNav(location) {
   const gameFrame = document.getElementById("gameFrame");
   await changeNavItemColor(location);
-  gameFrame.src = "game/" + location + ".php";
+  gameFrame.src = "game/gameSections/" + location + ".php";
 }
 
 async function changeNavItemColor(id) {

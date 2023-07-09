@@ -3,7 +3,7 @@
 if(isset($_SESSION['loggedin'])) { return; }
 
 require_once 'global.php';
-require_once 'class.simpleSQLinjectionDetect.php';
+require_once 'sql.php';
 
 $request_form = "";
 

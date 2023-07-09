@@ -1,9 +1,9 @@
 <?php
 
-    require_once '../php/global.php';
+    require_once '../../php/global.php';
 
     if(isset($_SESSION['adminLoggedin'])){
-        header("location: admin/");
+        header("location: ../admin/");
         return;
     }
 
@@ -13,7 +13,7 @@
 
         if(isset($_POST['adminPassword'])){
             
-            $adminInfo = json_decode(file_get_contents("settings/adminSettings.json"), true);
+            $adminInfo = json_decode(file_get_contents("../settings/adminSettings.json"), true);
             $inputValue = $_POST['adminPassword'];
 
             if($inputValue == $adminInfo['password']){
@@ -27,11 +27,10 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../style/global.css">
-    <link rel="stylesheet" href="style/adminLogin.css">
+    <link rel="stylesheet" href="../../../style/global.css">
+    <link rel="stylesheet" href="../style/adminLogin.css">
 </head>
 <body>
     <form method="POST" name="adminLogin">
