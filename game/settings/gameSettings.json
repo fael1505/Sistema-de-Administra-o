@@ -5,7 +5,7 @@
         "tierDamageMultiplier":0.29
     },
     "itemTypeName":{
-        "hand":"Arma",
+        "hand":"Arma/Escudo",
         "helmet":"Capacete",
         "chestplate":"Peitoral",
         "gloves":"Luvas",
@@ -14,19 +14,51 @@
         "essence":"Essência"
     },
     "itemValueDescription":{
-        "dmg":"{0} - {1} Dano base",
+        "dmg":"{0} - {1} Dano",
         "atkSpeed":"{0} Ataque(s) por segundo",
         "lifeSteal":"{0}% Do dano é transformado em vida",
         "armor":"+{0} Armadura total",
         "life":"+{0} Vida máxima",
-        "lifeReg":"+{0} Regeneração de vida por segundo",
+        "lifeReg":"+{0} Regeneração de vida por segundo"
+    },
+    "enchantmentDescription":{
+        "+dmg":"+{0} Dano",
+        "%dmg":"+{0}% Dano",
+        "+totalDmg":"+{0} Dano total",
+        "%totalDmg":"+{0}% Dano total",
         "expBonus":"+{0}% XP ganho",
         "moneyBonus":"+{0}% Moeda ganha",
         "gemBonus":"+{0}% Cristal ganho"
     },
-    "enchantmentDescription":{
-        "+dmg":"+{0} Dano base do item",
-        "%dmg":"+{0}% Dano base do item"
+    "itemTypeValues":{
+        "hand":{
+            "values":"dmg,atkSpeed,lifeSteal,armor,lifeReg",
+            "ehchantments":"+dmg,%dmg,expBonus,moneyBonus,gemBonus"
+        },
+        "helmet":{
+            "values":"armor,lifeReg",
+            "ehchantments":"expBonus,moneyBonus,gemBonus"
+        },
+        "chestplate":{
+            "values":"armor,lifeReg",
+            "ehchantments":"expBonus,moneyBonus,gemBonus"
+        },
+        "gloves":{
+            "values":"armor,lifeReg",
+            "ehchantments":"expBonus,moneyBonus,gemBonus"
+        },
+        "pants":{
+            "values":"armor,lifeReg",
+            "ehchantments":"expBonus,moneyBonus,gemBonus"
+        },
+        "ring":{
+            "values":"",
+            "ehchantments":"+totalDmg,%totalDmg,expBonus,moneyBonus,gemBonus"
+        },
+        "essence":{
+            "values":"dmg,atkSpeed,lifeSteal",
+            "ehchantments":"+dmg,%dmg,+totalDmg,%totalDmg"
+        }
     }
     
 }

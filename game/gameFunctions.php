@@ -4,7 +4,7 @@
 
         $atkMin = $baseAtk[0];
         $atkMax = $baseAtk[1];
-        $maxAtkMultiplier = ($atkMax/100)*$atkMin;
+        $maxAtkMultiplier = 1 + (($atkMax-$atkMin)/100);
 
         $tierMultiplier = 1 + (($gameSettings['items']['tierDamageMultiplier'])*($tier-1));
 

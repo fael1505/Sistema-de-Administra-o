@@ -22,3 +22,18 @@ body{
 .option a:hover{
     color: orangered;
 }
+
+.option input[type="number"]{
+    width: 3.2rem;
+}
+
+.property{
+    margin: 0;
+    padding: 0.4rem 0 0.4rem 0;
+    border-bottom: 2px dashed rgba(0, 0, 0, 0.3);
+}
+
+.property.btop{
+    margin-top: 1rem;
+    border-top: 2px dashed rgba(0, 0, 0, 0.3);
+}

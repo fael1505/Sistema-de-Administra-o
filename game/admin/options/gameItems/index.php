@@ -54,43 +54,57 @@
                             $tier = $row['tier'];
                             $enchantments = json_decode($row['defaultEnchantments']);
                             $values = json_decode($row['itemValues'], true);
+                            $itemValidValues = explode(",", $gameSettings['itemTypeValues'][$slot]['values']);
 
                             $valuesDescription = '';
 
-                            switch ($slot){
-                                case 'hand':
-                                    foreach($values as $key => $val){
-                                        switch ($key){
-                                            case 'dmg':
-                                                $itemDmg = [
-                                                    $val['min'],
-                                                    $val['max'],
-                                                ];
-                                                $realDmg = itemTotalDamage($itemDmg, $tier, $enchantments, $gameSettings);
-                                                $valuesDescription = $valuesDescription."<p>".str_replace("{1}", $realDmg[1], str_replace("{0}", $realDmg[0], $gameSettings['itemValueDescription'][$key]))."</p>";
+                            foreach($values as $key => $val){
+                                
+                                if(!in_array($key, $itemValidValues)){ break; }
 
-                                                break;
+                                switch ($key){
+                                    case 'dmg':
+                                        $itemDmg = [
+                                            $val['min'],
+                                            $val['max'],
+                                        ];
+                                        $realDmg = itemTotalDamage($itemDmg, $tier, $enchantments, $gameSettings);
+                                        $valuesDescription = $valuesDescription."<p>".str_replace("{1}", $realDmg[1], str_replace("{0}", $realDmg[0], $gameSettings['itemValueDescription'][$key]))."</p>";
 
-                                            case 'armor':
-                                                $armor = $val['value'];
-                                                $valuesDescription = $valuesDescription."<p>".str_replace("{0}", $armor, $gameSettings['itemValueDescription'][$key])."</p>";
+                                        break;
+                                    
+                                    case 'atkSpeed':
+                                        $atkSpeed = $val['value'];
+                                        $valuesDescription = $valuesDescription."<p>".str_replace("{0}", $atkSpeed, $gameSettings['itemValueDescription'][$key])."</p>";
 
-                                                break;
+                                        break;
 
-                                            case 'life':
-                                                $life = $val['value'];
-                                                $valuesDescription = $valuesDescription."<p>".str_replace("{0}", $life, $gameSettings['itemValueDescription'][$key])."</p>";
+                                    case 'lifeSteal':
+                                        $lifeSteal = $val['value'];
+                                        $valuesDescription = $valuesDescription."<p>".str_replace("{0}", $lifeSteal, $gameSettings['itemValueDescription'][$key])."</p>";
 
-                                                break;
-                                                
-                                        }
-                                    }
+                                        break;
 
-                                    break;
+                                    case 'armor':
+                                        $armor = $val['value'];
+                                        $valuesDescription = $valuesDescription."<p>".str_replace("{0}", $armor, $gameSettings['itemValueDescription'][$key])."</p>";
 
-                                default:
-                                    $valuesDescription = $row['itemValues'];
+                                        break;
 
+                                    case 'life':
+                                        $life = $val['value'];
+                                        $valuesDescription = $valuesDescription."<p>".str_replace("{0}", $life, $gameSettings['itemValueDescription'][$key])."</p>";
+
+                                        break;
+
+                                    case 'lifeReg':
+                                        $lifeReg = $val['value'];
+                                        $valuesDescription = $valuesDescription."<p>".str_replace("{0}", $lifeReg, $gameSettings['itemValueDescription'][$key])."</p>";
+
+                                        break;
+
+                                }
+                                
                             }
 
                             $enchantmentsDescription = '';
